@@ -1,5 +1,16 @@
 # The Abstraction and Reasoning Corpus (ARC)
 
+This fork contains 3 hand-coded solutions for solve functions in src > manual_solve.py but is otherwise unchanged from the orgininal repo.
+
+Where the solve functions take as input a single grid encoded as a 2D NumPy integer array and returns a single grid in the same format.
+
+
+
+
+# Oringinal Readme below 
+The Abstraction and Reasoning Corpus (ARC)
+
+
 This repository contains the ARC task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
 
 *"ARC can be seen as a general artificial intelligence benchmark, as a program synthesis benchmark, or as a psychometric intelligence test. It is targeted at both humans and artificially intelligent systems that aim at emulating a human-like form of general fluid intelligence."*
