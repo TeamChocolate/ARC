@@ -7,7 +7,49 @@ Where the solve functions take as input a single grid encoded as a 2D NumPy inte
 
 
 
+The first task I solved with def solve_1cf80156
+![Task 30](https://github.com/TeamChocolate/ARC/blob/master/images/Task30.PNG?raw=true)
+
+The second task I solved with def solve_6430c8c4(x):
+![Task 143](https://github.com/TeamChocolate/ARC/blob/master/images/Task143.PNG?raw=true)
+
+The third task I solved with def solve_794b24be(x): 
+![Task 185](https://github.com/TeamChocolate/ARC/blob/master/images/Task185.PNG?raw=true)
+
+
 # Oringinal Readme below 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The Abstraction and Reasoning Corpus (ARC)
 
 
