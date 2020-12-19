@@ -9,6 +9,12 @@ import json
 import numpy as np
 import re
 
+# Summary / Reflection
+# To solve the tasks listed here, I've mostly used core python and numpy methods. Moving between python lists and NumPy arrays. 
+# I used NumPys reshape method to convert a core Python list into a NumPy 2D array for the output step for 2 of my solve functions.
+# I used python core methods for splicing the input grids into smaller output grids
+# I used NumPy enumeration methods to loop through the 2D input arrays giving me access to the index and the corresponding values
+
 def solve_1cf80156(x):
     # Task 30/400, 1cf80156
     # Dimensions (rows, columns)
@@ -102,6 +108,36 @@ def solve_6430c8c4(x):
     
     # our outputlist is just a standard python list, here I'm reshaping into NumPy array
     x = np.array(outputlist).reshape(-1, 4)        
+    
+    return x
+
+def solve_794b24be(x):    
+    # Task 185/400, 794b24be.json
+    
+    # Verbal description of the required transformation:
+    # Task 185/400 aka 794b24be.json is a task that has an output grid of (3, 3)(rows, columns). For each pixel that's not black from the input grid, those non-black colours are moved up to the top row in the output grid, coming out from the left hand side to the right until 3 values are there. If there's 4 values, then in the second row, that will be placed in the middle column. 
+    
+    # Which training and test grids are solved correctly:
+    # ALL training and test grids are solved correctly for the Task 185/400, 794b24be.json
+   
+    pixel_count = 0
+    outputlist = []
+    # count number of non-black pixels
+    # add pixels found to a new list
+    for index, val in np.ndenumerate(x): 
+        if(val != 0):
+            if(pixel_count == 3): # if pixelcount is 3, then we've filled the first row
+                outputlist.append(0) # adding buffer black pixel in case now on second row
+                outputlist.append(2) # add red pixel to list
+            else:
+                outputlist.append(2) # add red pixel to list               
+            pixel_count = pixel_count + 1    
+    
+    # after we've counted and populated our new list, the remain values are all black pixels
+    for i in range(0, (9-len(outputlist))):
+        outputlist.append(0) # add black pixel       
+    
+    x = np.array(outputlist).reshape(-1, 3) # reshape array into (3 rows, 3 columns)          
     
     return x
 
