@@ -56,6 +56,55 @@ def solve_1cf80156(x):
     
     return x
 
+def solve_6430c8c4(x):    
+    # Task 143/400, 6430c8c4.json
+    
+    # Verbal description of the required transformation:
+    # Task 143 aka 6430c8c4.json, is a task where there's an input grid split in 2 by a yellow row, the top half and the bottom half are equally sized. To solve, one must find where there's matching black squares in the top and bottom half of the grid. And the output must have a grid with green pixels where the matches occured.
+    
+    # Which training and test grids are solved correctly:
+    # ALL training and test grids are solved correctly for the Task 143 / 6430c8c4.json
+    
+    
+    # Workings
+    # Divide the grids into two
+    # Top has rows with orange, which has values of 2
+    # Bottom has rows with red, which has values of 7
+    # lose the middle yellow row, which has values of 4
+    # Loop through both top and bottom grids trying to find a match for the same coordinates in both grids
+    # for any match found, add to output grid
+    
+    # All input grids are (9, 4) where (row, column), and all outputs are (4, 4)
+    
+    top_grid = x[0:4, 0:4] # split the input grid into top half
+    bottom_grid = x[5:10, 0:4] # split the input grid into bottom half
+    yellow_grid = x[4:5, 0:4] # this is unused
+    
+    # 0 black, 3 green, 7 red, 2 orange, 4 yellow
+    #print("top grid is", top_grid)
+    #print("bottom grid is", bottom_grid)
+    #print("yellow grid is", yellow_grid)
+    
+    outputlist = []
+    
+    for index, top_grid_val in np.ndenumerate(top_grid):
+        bottom_grid_same_coord = (index[0], index[1])
+        bottom_grid_val = bottom_grid[bottom_grid_same_coord]
+        if(bottom_grid_val == 0 and top_grid_val == 0):
+            # then we have a matching black pair
+            # and we want to input green at this coordinate
+            # otherwise we set the coordinate to be black
+            outputlist.append(3) # 3 is green
+            
+        else:
+            # else, add black to the coordinate
+            outputlist.append(0)    
+    
+    # our outputlist is just a standard python list, here I'm reshaping into NumPy array
+    x = np.array(outputlist).reshape(-1, 4)        
+    
+    return x
+
 def main():
     # Find all the functions defined in this file whose names are
     # like solve_abcd1234(), and run them.
